@@ -40,7 +40,7 @@ export default function Process() {
   const inView = useInView(ref, { once: true });
 
   return (
-    <section id="process" style={{ padding: "120px 0", borderTop: "1px solid rgba(255,255,255,0.05)" }} ref={ref}>
+    <section id="process" className="section-padding" ref={ref}>
       <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "0 24px" }}>
 
         <motion.div
@@ -58,10 +58,9 @@ export default function Process() {
           </h2>
         </motion.div>
 
-        {/* Steps grid */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "24px", position: "relative" }}>
-          {/* Connector */}
-          <div style={{ position: "absolute", top: "36px", left: "12.5%", right: "12.5%", height: "1px", background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent)" }} />
+        <div className="four-col-grid" style={{ position: "relative" }}>
+          
+          <div className="hidden-mobile" style={{ position: "absolute", top: "36px", left: "12.5%", right: "12.5%", height: "1px", background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent)" }} />
 
           {steps.map((step, i) => (
             <motion.div
@@ -70,7 +69,7 @@ export default function Process() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
             >
-              {/* Icon circle */}
+              
               <div style={{
                 width: "56px", height: "56px", borderRadius: "14px", marginBottom: "24px",
                 display: "flex", alignItems: "center", justifyContent: "center",

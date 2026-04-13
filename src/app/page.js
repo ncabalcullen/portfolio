@@ -8,6 +8,7 @@ import Process from "@/components/sections/Process";
 import FAQ from "@/components/sections/FAQ";
 import Contact from "@/components/sections/Contact";
 import Footer from "@/components/layout/Footer";
+import MobileDock from "@/components/layout/MobileDock";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
       <FAQ />
       <Contact />
       <Footer />
+      <MobileDock />
     </main>
   );
 }

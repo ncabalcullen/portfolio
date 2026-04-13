@@ -9,7 +9,6 @@
   --color-surface: rgba(255, 255, 255, 0.04);
 }
 
-/* ─── Reset ─── */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -28,24 +27,71 @@ body {
   overflow-x: hidden;
 }
 
-/* ─── Cursor ─── */
 html, body, * {
   cursor: none !important;
 }
 
-/* ─── JetBrains Mono for mono elements ─── */
 code, kbd, pre, .mono-text {
   font-family: "JetBrains Mono", monospace;
 }
 
-/* ─── Selection ─── */
 ::selection {
   background: rgba(0, 255, 240, 0.18);
   color: #00fff0;
 }
 
-/* ─── Scrollbar ─── */
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 10px; }
 ::-webkit-scrollbar-thumb:hover { background: rgba(0,255,240,0.45); }
+
+.hero-grid { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: center; }
+.header-grid { display: grid; grid-template-columns: 1fr; gap: 16px; align-items: start; }
+.three-col-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+.four-col-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+.contact-grid { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: start; }
+
+.bento-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "web"
+    "cloud"
+    "backend"
+    "integral"
+    "automation";
+}
+
+.section-padding { padding: 80px 0; border-top: 1px solid rgba(255,255,255,0.05); }
+
+@media (min-width: 768px) {
+  .hero-grid { grid-template-columns: 1fr 1fr; gap: 80px; }
+  .header-grid { grid-template-columns: 1fr 1fr; gap: 32px; align-items: end; }
+  .three-col-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .four-col-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .contact-grid { grid-template-columns: 1fr 1.2fr; gap: 80px; }
+  .section-padding { padding: 120px 0; }
+}
+
+@media (min-width: 1024px) {
+  .three-col-grid { grid-template-columns: repeat(3, 1fr); }
+  .four-col-grid { grid-template-columns: repeat(4, 1fr); }
+  .bento-grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+      "web      web      automation"
+      "cloud    backend  automation"
+      "integral integral integral";
+  }
+}
+
+.hidden-mobile { display: none !important; }
+@media (min-width: 768px) {
+  .hidden-mobile { display: flex !important; }
+}
+
+.show-mobile { display: flex !important; }
+@media (min-width: 768px) {
+  .show-mobile { display: none !important; }
+}

@@ -44,7 +44,7 @@ export default function TerminalWidget() {
 
   return (
     <div className="relative rounded-2xl overflow-hidden border border-white/[0.08] bg-[#0d0d14]">
-      {/* Title bar */}
+      
       <div className="flex items-center gap-2 px-4 py-3 border-b border-white/[0.06] bg-white/[0.02]">
         <span className="w-3 h-3 rounded-full bg-red-500/70" />
         <span className="w-3 h-3 rounded-full bg-yellow-500/70" />
@@ -53,7 +53,7 @@ export default function TerminalWidget() {
           bash — devsystem@studio
         </span>
       </div>
-      {/* Body */}
+      
       <div className="p-5 space-y-1.5 min-h-[190px]">
         {started &&
           lines.map((line, i) => (

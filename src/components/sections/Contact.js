@@ -7,13 +7,13 @@ const MONO = { fontFamily: "'JetBrains Mono', 'Courier New', monospace" };
 export default function Contact() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true });
-  const [status, setStatus] = useState("idle"); // idle | sending | sent
+  const [status, setStatus] = useState("idle");
   const [form, setForm] = useState({ name: "", email: "", message: "" });
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setStatus("sending");
-    // TODO: connect to Formspree / EmailJS
+
     setTimeout(() => {
       setStatus("sent");
       setForm({ name: "", email: "", message: "" });
@@ -34,11 +34,10 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" style={{ padding: "120px 0", borderTop: "1px solid rgba(255,255,255,0.05)" }} ref={ref}>
+    <section id="contact" className="section-padding" ref={ref}>
       <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "0 24px" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1.2fr", gap: "80px", alignItems: "start" }}>
+        <div className="contact-grid">
 
-          {/* Left */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -57,7 +56,6 @@ export default function Contact() {
               </p>
             </div>
 
-            {/* Contact info */}
             <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
               {[
                 { key: "EMAIL", val: "hola@devsystem.studio" },
@@ -72,7 +70,6 @@ export default function Contact() {
             </div>
           </motion.div>
 
-          {/* Right — Form */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}

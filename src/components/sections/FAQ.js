@@ -81,7 +81,6 @@ export default function FAQ() {
       <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "0 24px" }}>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1.4fr", gap: "80px", alignItems: "start" }}>
 
-          {/* Left */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -99,7 +98,6 @@ export default function FAQ() {
             </p>
           </motion.div>
 
-          {/* Right — Accordion */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}

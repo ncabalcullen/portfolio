@@ -44,7 +44,6 @@ export default function CustomCursor() {
       });
     };
 
-    // Re-run when DOM updates
     const observer = new MutationObserver(addListeners);
     observer.observe(document.body, { childList: true, subtree: true });
     addListeners();
@@ -60,7 +59,7 @@ export default function CustomCursor() {
 
   return (
     <>
-      {/* Ring */}
+      
       <motion.div
         className="fixed top-0 left-0 w-10 h-10 rounded-full pointer-events-none z-[9999]"
         style={{
@@ -72,7 +71,7 @@ export default function CustomCursor() {
           backdropFilter: "blur(0px)",
         }}
       />
-      {/* Dot */}
+      
       <motion.div
         className="fixed top-0 left-0 w-[6px] h-[6px] rounded-full pointer-events-none z-[9999] bg-[#00fff0]"
         style={{ x: dotX, y: dotY, opacity: smoothOpacity }}
