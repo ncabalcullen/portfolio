@@ -4,7 +4,6 @@ import { motion, useInView } from "framer-motion";
 
 const MONO = { fontFamily: "'JetBrains Mono', 'Courier New', monospace" };
 
-// Only honest, real projects — replace content with real ones when available
 const projects = [
   {
     id: 1,
@@ -62,17 +61,15 @@ function ProjectCard({ project, index }) {
       whileHover={{ borderColor: `${project.accent}28` }}
       data-cursor-hover
     >
-      {/* Top accent */}
+      
       <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "1px", background: `linear-gradient(90deg, transparent, ${project.accent}60, transparent)` }} />
 
-      {/* Hover glow */}
       <motion.div
         initial={{ opacity: 0 }}
         whileHover={{ opacity: 1 }}
         style={{ position: "absolute", inset: 0, pointerEvents: "none", background: `radial-gradient(ellipse at 50% 0%, ${project.accent}06 0%, transparent 65%)` }}
       />
 
-      {/* Header */}
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         <span style={{
           ...MONO, fontSize: "11px", padding: "4px 10px", borderRadius: "100px",
@@ -85,7 +82,6 @@ function ProjectCard({ project, index }) {
         </span>
       </div>
 
-      {/* Content */}
       <div style={{ flex: 1 }}>
         <h3 style={{ fontSize: "18px", fontWeight: "600", color: "#fff", marginBottom: "10px", letterSpacing: "-0.02em" }}>
           {project.title}
@@ -95,7 +91,6 @@ function ProjectCard({ project, index }) {
         </p>
       </div>
 
-      {/* Stack */}
       <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", paddingTop: "16px", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
         {project.stack.map((tech) => (
           <span key={tech} style={{ ...MONO, fontSize: "11px", padding: "4px 10px", borderRadius: "6px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)", color: "rgba(255,255,255,0.4)" }}>
@@ -112,10 +107,9 @@ export default function Projects() {
   const inView = useInView(ref, { once: true });
 
   return (
-    <section id="projects" style={{ padding: "120px 0", borderTop: "1px solid rgba(255,255,255,0.05)" }} ref={ref}>
+    <section id="projects" className="section-padding" ref={ref}>
       <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "0 24px" }}>
 
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -125,7 +119,7 @@ export default function Projects() {
           <p style={{ ...MONO, fontSize: "11px", color: "#00fff0", marginBottom: "16px", letterSpacing: "0.12em", textTransform: "uppercase" }}>
             03 — Proyectos
           </p>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "32px", alignItems: "end" }}>
+          <div className="header-grid">
             <h2 style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: "700", color: "#fff", letterSpacing: "-0.03em", lineHeight: 1.08 }}>
               Lo que hemos{" "}
               <span style={{ color: "rgba(255,255,255,0.3)" }}>construido.</span>
@@ -136,14 +130,12 @@ export default function Projects() {
           </div>
         </motion.div>
 
-        {/* Grid */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "20px" }}>
+        <div className="three-col-grid">
           {projects.map((p, i) => (
             <ProjectCard key={p.id} project={p} index={i} />
           ))}
         </div>
 
-        {/* Honest note */}
         <motion.p
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}

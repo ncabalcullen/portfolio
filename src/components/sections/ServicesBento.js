@@ -68,18 +68,6 @@ const tiles = [
   },
 ];
 
-// Grid template areas — bento layout (3 cols)
-const gridStyles = {
-  display: "grid",
-  gap: "16px",
-  gridTemplateColumns: "repeat(3, 1fr)",
-  gridTemplateAreas: `
-    "web      web      automation"
-    "cloud    backend  automation"
-    "integral integral integral"
-  `,
-};
-
 const gridAreaMap = {
   web: "web",
   automation: "automation",
@@ -116,7 +104,7 @@ function BentoTile({ tile, index }) {
       }}
       data-cursor-hover
     >
-      {/* Top accent line */}
+      
       <div
         style={{
           position: "absolute",
@@ -129,12 +117,11 @@ function BentoTile({ tile, index }) {
       />
 
       <div style={{ padding: "32px", height: "100%", display: "flex", flexDirection: "column" }}>
-        {/* Header row */}
+        
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "16px" }}>
           <span style={{ fontSize: "28px", color: tile.accent }}>{tile.icon}</span>
         </div>
 
-        {/* Body */}
         <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: "8px" }}>
           <p style={{ ...MONO, fontSize: "11px", color: "rgba(255,255,255,0.4)" }}>
             {tile.question}
@@ -146,7 +133,6 @@ function BentoTile({ tile, index }) {
             {tile.desc}
           </p>
 
-          {/* Examples */}
           <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginTop: "auto" }}>
             {tile.examples.map((ex) => (
               <span key={ex} style={{
@@ -165,7 +151,6 @@ function BentoTile({ tile, index }) {
           </div>
         </div>
 
-        {/* Footer */}
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", paddingTop: "20px", marginTop: "24px", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
           <span
             style={{
@@ -194,9 +179,9 @@ export default function ServicesBento() {
   const inView = useInView(ref, { once: true });
 
   return (
-    <section id="services" style={{ padding: "120px 0", borderTop: "1px solid rgba(255,255,255,0.05)", position: "relative" }} ref={ref}>
+    <section id="services" className="section-padding" style={{ position: "relative" }} ref={ref}>
       <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "0 24px" }}>
-        {/* Header */}
+        
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -216,8 +201,7 @@ export default function ServicesBento() {
           </div>
         </motion.div>
 
-        {/* Bento Grid */}
-        <div style={gridStyles}>
+        <div className="bento-grid">
           {tiles.map((tile, i) => (
             <BentoTile key={tile.id} tile={tile} index={i} />
           ))}

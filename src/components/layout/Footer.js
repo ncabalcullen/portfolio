@@ -14,17 +14,15 @@ export default function Footer() {
         gap: "24px",
         textAlign: "center"
       }}>
-        {/* Logo */}
+        
         <span style={{ fontFamily: "'JetBrains Mono', 'Courier New', monospace", fontSize: "14px", color: "rgba(255,255,255,0.3)" }}>
           dev<span style={{ color: "rgba(0,255,240,0.6)" }}>system</span>.studio
         </span>
-        
-        {/* Location & Year */}
+
         <span style={{ fontFamily: "'JetBrains Mono', 'Courier New', monospace", fontSize: "12px", color: "rgba(255,255,255,0.2)" }}>
           © {year} — Buenos Aires, Argentina
         </span>
-        
-        {/* Social Links */}
+
         <div style={{ display: "flex", gap: "24px", justifyContent: "center" }}>
           {["LinkedIn", "GitHub"].map((s) => (
             <a

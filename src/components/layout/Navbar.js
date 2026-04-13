@@ -55,7 +55,7 @@ export default function Navbar() {
         alignItems: "center",
         justifyContent: "space-between",
       }}>
-        {/* Logo */}
+        
         <a
           href="/"
           style={{ textDecoration: "none" }}
@@ -68,8 +68,7 @@ export default function Navbar() {
           </span>
         </a>
 
-        {/* Desktop Links */}
-        <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
+        <div className="hidden-mobile" style={{ alignItems: "center", gap: "4px" }}>
           {links.map((link) => (
             <a
               key={link.href}
@@ -99,9 +98,9 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* CTA */}
-        <a
-          href="#contact"
+        <div className="hidden-mobile">
+          <a
+            href="#contact"
           onClick={(e) => handleClick(e, "#contact")}
           data-cursor-hover
           style={{
@@ -125,11 +124,11 @@ export default function Navbar() {
             e.currentTarget.style.borderColor = "rgba(0,255,240,0.25)";
           }}
         >
-          Cotizar →
-        </a>
+            Cotizar →
+          </a>
+        </div>
       </div>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div

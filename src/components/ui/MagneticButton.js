@@ -2,10 +2,6 @@
 import { useEffect, useRef } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 
-/**
- * MagneticButton — wraps children in a div that attracts toward the cursor
- * when hovering, and snaps back when the cursor leaves.
- */
 export default function MagneticButton({ children, className = "", strength = 0.4 }) {
   const ref = useRef(null);
   const x = useMotionValue(0);
